@@ -1,0 +1,17 @@
+ name: Restrict merges to main
+
+ on:
+   pull_request:
+     branches:
+       - main
+
+ jobs:
+   enforce-integration-branch:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Check source branch
+         run: |
+           if [ "${{ github.event.pull_request.head.ref }}" != "integration" ]; then
+             echo "Pull requests to 'main' are only allowed from 'integration'."
+             exit 1
+           fi
