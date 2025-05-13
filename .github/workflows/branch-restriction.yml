@@ -6,7 +6,7 @@
        - main
 
  jobs:
-   check-branch:
+   enforce-integration-branch:
      runs-on: ubuntu-latest
      steps:
        - name: Check source branch
