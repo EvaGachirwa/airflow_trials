@@ -1,7 +1,9 @@
 name: Astronomer CI - Deploy code for qa and production deployments
 
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
        - qa
        - main
