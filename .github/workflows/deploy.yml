@@ -5,12 +5,12 @@ on:
     types:
       - closed
     branches:
-       - qa
+       - integration
        - main
 
 jobs:
   qa-push:
-    if: github.ref == 'refs/heads/qa'
+    if: github.ref == 'refs/heads/integration'
     runs-on: ubuntu-latest
     steps:
     - name: Deploy to Astro
