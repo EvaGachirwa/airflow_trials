@@ -1,0 +1,23 @@
+name: Astronomer CI - Deploy code for qa and production deployments
+
+on:
+  push:
+    branches:
+       - qa
+       - main
+
+jobs:
+  qa-push:
+    if: github.ref == 'refs/heads/qa'
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to Astro
+      run:
+        echo 'qa'
+  prod-push:
+    if: github.event.action == 'closed' && github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to Astro
+      run: 
+        echo 'prod'
